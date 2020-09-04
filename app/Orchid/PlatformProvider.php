@@ -26,15 +26,16 @@ class PlatformProvider extends OrchidServiceProvider
     public function registerMainMenu(): array
     {
         return [
-            ItemMenu::label('Example screen')
-                ->icon('icon-monitor')
-                ->route('platform.example')
-                ->title('Navigation'),
 
-            ItemMenu::label('Dropdown menu')
-                ->slug('example-menu')
-                ->icon('icon-code')
-                ->childs(),
+            ItemMenu::label('Основная информация')
+                ->icon('icon-monitor')
+                ->route('platform.basics')
+                ->title('Редактирование основной информации на сайте'),
+
+            ItemMenu::label('Портфолио')
+                ->icon('icon-briefcase')
+                ->route('platform.works')
+                ->title('Управление портфолио'),
 
             ItemMenu::label('Sub element item 1')
                 ->place('example-menu')
@@ -100,28 +101,28 @@ class PlatformProvider extends OrchidServiceProvider
     public function registerSystemMenu(): array
     {
         return [
-            ItemMenu::label(__('Access rights'))
+            ItemMenu::label(__('ПРава'))
                 ->icon('icon-lock')
                 ->slug('Auth')
                 ->active('platform.systems.*')
                 ->permission('platform.systems.index')
                 ->sort(1000),
 
-            ItemMenu::label(__('Users'))
+            ItemMenu::label(__('Пользователи'))
                 ->place('Auth')
                 ->icon('icon-user')
                 ->route('platform.systems.users')
                 ->permission('platform.systems.users')
                 ->sort(1000)
-                ->title(__('All registered users')),
+                ->title(__('Все зарегистрированные администраторы системы')),
 
-            ItemMenu::label(__('Roles'))
+            ItemMenu::label(__('Роли'))
                 ->place('Auth')
                 ->icon('icon-lock')
                 ->route('platform.systems.roles')
                 ->permission('platform.systems.roles')
                 ->sort(1000)
-                ->title(__('A Role defines a set of tasks a user assigned the role is allowed to perform. ')),
+                ->title(__('Роли определяют возможности пользователей в системе')),
         ];
     }
 

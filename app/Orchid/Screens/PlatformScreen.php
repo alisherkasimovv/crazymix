@@ -16,14 +16,14 @@ class PlatformScreen extends Screen
      *
      * @var string
      */
-    public $name = 'Dashboard';
+    public $name = 'Админ панель';
 
     /**
      * Display header description.
      *
      * @var string
      */
-    public $description = 'Welcome';
+    public $description = 'Добро пожаловать';
 
     /**
      * Query data.
