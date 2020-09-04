@@ -14,6 +14,8 @@ use App\Orchid\Screens\Examples\ExampleTextEditorsScreen;
 use App\Orchid\Screens\PlatformScreen;
 use App\Orchid\Screens\Role\RoleEditScreen;
 use App\Orchid\Screens\Role\RoleListScreen;
+use App\Orchid\Screens\Social\SocialEditScreen;
+use App\Orchid\Screens\Social\SocialListScreen;
 use App\Orchid\Screens\User\UserEditScreen;
 use App\Orchid\Screens\User\UserListScreen;
 use App\Orchid\Screens\Work\WorkEditScreen;
@@ -39,6 +41,10 @@ Route::screen('basics', BasicListScreen::class)->name('platform.basics');
 
 Route::screen('work/{work?}', WorkEditScreen::class)->name('platform.work.edit');
 Route::screen('works', WorkListScreen::class)->name('platform.works');
+
+
+Route::screen('social/{social?}', SocialEditScreen::class)->name('platform.social.edit');
+Route::screen('socials', SocialListScreen::class)->name('platform.socials');
 
 // Users...
 Route::screen('users/{users}/edit', UserEditScreen::class)->name('platform.systems.users.edit');

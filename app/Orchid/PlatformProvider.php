@@ -30,51 +30,54 @@ class PlatformProvider extends OrchidServiceProvider
             ItemMenu::label('Основная информация')
                 ->icon('icon-monitor')
                 ->route('platform.basics')
-                ->title('Редактирование основной информации на сайте'),
+                ->title('Основная информация'),
 
             ItemMenu::label('Портфолио')
                 ->icon('icon-briefcase')
-                ->route('platform.works')
-                ->title('Управление портфолио'),
+                ->route('platform.works'),
 
-            ItemMenu::label('Sub element item 1')
-                ->place('example-menu')
-                ->icon('icon-bag'),
+            ItemMenu::label('Социальные сети')
+                ->icon('icon-globe')
+                ->route('platform.socials'),
 
-            ItemMenu::label('Sub element item 2')
-                ->place('example-menu')
-                ->icon('icon-heart'),
-
-            ItemMenu::label('Basic Elements')
-                ->title('Form controls')
-                ->icon('icon-note')
-                ->route('platform.example.fields'),
-
-            ItemMenu::label('Advanced Elements')
-                ->icon('icon-briefcase')
-                ->route('platform.example.advanced'),
-
-            ItemMenu::label('Text Editors')
-                ->icon('icon-list')
-                ->route('platform.example.editors'),
-
-            ItemMenu::label('Overview layouts')
-                ->title('Layouts')
-                ->icon('icon-layers')
-                ->route('platform.example.layouts'),
-
-            ItemMenu::label('Chart tools')
-                ->icon('icon-bar-chart')
-                ->route('platform.example.charts'),
-
-            ItemMenu::label('Cards')
-                ->icon('icon-grid')
-                ->route('platform.example.cards'),
-
-            ItemMenu::label('Documentation')
-                ->title('Docs')
-                ->icon('icon-docs')
-                ->url('https://orchid.software/en/docs'),
+//            ItemMenu::label('Sub element item 1')
+//                ->place('example-menu')
+//                ->icon('icon-bag'),
+//
+//            ItemMenu::label('Sub element item 2')
+//                ->place('example-menu')
+//                ->icon('icon-heart'),
+//
+//            ItemMenu::label('Basic Elements')
+//                ->title('Form controls')
+//                ->icon('icon-note')
+//                ->route('platform.example.fields'),
+//
+//            ItemMenu::label('Advanced Elements')
+//                ->icon('icon-briefcase')
+//                ->route('platform.example.advanced'),
+//
+//            ItemMenu::label('Text Editors')
+//                ->icon('icon-list')
+//                ->route('platform.example.editors'),
+//
+//            ItemMenu::label('Overview layouts')
+//                ->title('Layouts')
+//                ->icon('icon-layers')
+//                ->route('platform.example.layouts'),
+//
+//            ItemMenu::label('Chart tools')
+//                ->icon('icon-bar-chart')
+//                ->route('platform.example.charts'),
+//
+//            ItemMenu::label('Cards')
+//                ->icon('icon-grid')
+//                ->route('platform.example.cards'),
+//
+//            ItemMenu::label('Documentation')
+//                ->title('Docs')
+//                ->icon('icon-docs')
+//                ->url('https://orchid.software/en/docs'),
         ];
     }
 
@@ -101,7 +104,7 @@ class PlatformProvider extends OrchidServiceProvider
     public function registerSystemMenu(): array
     {
         return [
-            ItemMenu::label(__('ПРава'))
+            ItemMenu::label(__('Права'))
                 ->icon('icon-lock')
                 ->slug('Auth')
                 ->active('platform.systems.*')

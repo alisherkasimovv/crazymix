@@ -1,27 +1,27 @@
 <?php
 
-namespace App\Orchid\Screens\Work;
+namespace App\Orchid\Screens\Social;
 
-use App\Orchid\Layouts\Work\WorkListLayout;
-use App\Work;
+use App\Orchid\Layouts\Social\SocialListLayout;
+use App\Social;
 use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Screen;
 
-class WorkListScreen extends Screen
+class SocialListScreen extends Screen
 {
     /**
      * Display header name.
      *
      * @var string
      */
-    public $name = 'Выполненые работы';
+    public $name = 'Социальные сети';
 
     /**
      * Display header description.
      *
      * @var string
      */
-    public $description = 'На этой странице вы можете управлять вашим портфолио.';
+    public $description = 'Добавление/удаление социальных сетей';
 
     /**
      * Query data.
@@ -31,7 +31,7 @@ class WorkListScreen extends Screen
     public function query(): array
     {
         return [
-            'works' => Work::paginate(10)
+            'socials' => Social::paginate(10)
         ];
     }
 
@@ -45,7 +45,7 @@ class WorkListScreen extends Screen
         return [
             Link::make('Добавить...')
                 ->icon('icon-pencil')
-                ->route('platform.work.edit')
+                ->route('platform.social.edit')
         ];
     }
 
@@ -57,7 +57,7 @@ class WorkListScreen extends Screen
     public function layout(): array
     {
         return [
-            WorkListLayout::class
+            SocialListLayout::class
         ];
     }
 }
