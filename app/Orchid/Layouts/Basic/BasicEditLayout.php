@@ -67,6 +67,12 @@ class BasicEditLayout extends Rows
                 ->title('Дополнительный номер телефона')
                 ->help('Введите основной номер дополнительного телефона (Не обязательно)'),
 
+            Input::make('basic.email')
+                ->type('email')
+                ->title('Email')
+                ->placeholder('Email')
+                ->help("Введите основной электронный адрес"),
+
             Picture::make('basic.image')
                 ->title('Логотип')
                 ->required()

@@ -22,6 +22,7 @@ class CreateBasicsTable extends Migration
             $table->string('country')->nullable();
             $table->string('phone_main')->nullable();
             $table->string('phone_additional')->nullable();
+            $table->string('email')->nullable();
             $table->string('image')->nullable();
             $table->boolean('is_active')->default(false)->nullable();
             $table->timestamps();

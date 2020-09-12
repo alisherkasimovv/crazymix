@@ -18,6 +18,7 @@ class Basic extends Model
         'country',
         'phone_main',
         'phone_additional',
+        'email',
         'image',
         'is_active'
     ];
