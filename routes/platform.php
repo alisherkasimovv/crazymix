@@ -20,6 +20,8 @@ use App\Orchid\Screens\User\UserEditScreen;
 use App\Orchid\Screens\User\UserListScreen;
 use App\Orchid\Screens\Work\WorkEditScreen;
 use App\Orchid\Screens\Work\WorkListScreen;
+use App\Orchid\Screens\WorkType\WorkTypeEditScreen;
+use App\Orchid\Screens\WorkType\WorkTypeListScreen;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -42,6 +44,8 @@ Route::screen('basics', BasicListScreen::class)->name('platform.basics');
 Route::screen('work/{work?}', WorkEditScreen::class)->name('platform.work.edit');
 Route::screen('works', WorkListScreen::class)->name('platform.works');
 
+Route::screen('work-type/{work-type?}', WorkTypeEditScreen::class)->name('platform.workType.edit');
+Route::screen('work-types', WorkTypeListScreen::class)->name('platform.workTypes');
 
 Route::screen('social/{social?}', SocialEditScreen::class)->name('platform.social.edit');
 Route::screen('socials', SocialListScreen::class)->name('platform.socials');
