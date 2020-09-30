@@ -2,7 +2,7 @@
 
 namespace App\Orchid\Layouts\WorkType;
 
-use App\WorkType;
+use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Layouts\Table;
 use Orchid\Screen\TD;
@@ -28,12 +28,19 @@ class WorkTypeListLayout extends Table
     {
         return [
             TD::set('name', 'Название')
-                ->render(function (WorkType $workType) {
+                ->render(function ($workType) {
                     return Link::make($workType->name)
                         ->route('platform.workType.edit', $workType);
                 }),
 
-            TD::set('is_active', 'Активность'),
+            TD::set('description', 'Описание'),
+
+            TD::set('main_work', 'Активность')
+                ->render(function ($workType)
+                {
+                    return $workType->main_work == 1 ? 'Основная' : 'Не основная';
+                })
+                ->sort(),
         ];
     }
 }

@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+use App\Orchid\Screens\About\AboutListScreen;
+use App\Orchid\Screens\About\AboutEditScreen;
 use App\Orchid\Screens\Basic\BasicListScreen;
 use App\Orchid\Screens\Basic\BasicEditScreen;
 use App\Orchid\Screens\Examples\ExampleCardsScreen;
@@ -44,11 +46,14 @@ Route::screen('basics', BasicListScreen::class)->name('platform.basics');
 Route::screen('work/{work?}', WorkEditScreen::class)->name('platform.work.edit');
 Route::screen('works', WorkListScreen::class)->name('platform.works');
 
-Route::screen('work-type/{work-type?}', WorkTypeEditScreen::class)->name('platform.workType.edit');
+Route::screen('work-type/{workType?}', WorkTypeEditScreen::class)->name('platform.workType.edit');
 Route::screen('work-types', WorkTypeListScreen::class)->name('platform.workTypes');
 
 Route::screen('social/{social?}', SocialEditScreen::class)->name('platform.social.edit');
 Route::screen('socials', SocialListScreen::class)->name('platform.socials');
+
+Route::screen('about/{about?}', AboutEditScreen::class)->name('platform.about.edit');
+Route::screen('abouts', AboutListScreen::class)->name('platform.abouts');
 
 // Users...
 Route::screen('users/{users}/edit', UserEditScreen::class)->name('platform.systems.users.edit');

@@ -3,6 +3,7 @@
 namespace App\Orchid\Layouts\Basic;
 
 use Orchid\Screen\Field;
+use Orchid\Screen\Fields\CheckBox;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Fields\Picture;
 use Orchid\Screen\Fields\Radio;
@@ -78,15 +79,11 @@ class BasicEditLayout extends Rows
                 ->required()
                 ->targetRelativeUrl(),
 
-            Radio::make('basic.is_active')
-                ->placeholder('Активно')
+            CheckBox::make('basic.is_active')
                 ->value(1)
-                ->checked(true)
-                ->title('Активность'),
-
-            Radio::make('basic.is_active')
-                ->placeholder('Не активно')
-                ->value(0)
+                ->sendTrueOrFalse()
+                ->title('Активность')
+                ->placeholder('Активно')
                 ->help('Сделать информацию активной для посетителей')
         ];
     }

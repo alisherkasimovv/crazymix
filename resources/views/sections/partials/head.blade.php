@@ -5,4 +5,6 @@
 <meta name="description" content="HTML5 website template">
 <meta name="keywords" content="unborn, template, html, sass, jquery">
 <meta name="author" content="Alisher Kasimov">
+
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 <link rel="stylesheet" href="{{ asset("assets/css/main.css") }}">

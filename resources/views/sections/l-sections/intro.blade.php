@@ -10,18 +10,12 @@
       <img src="assets/img/introduction-visual.png" alt="Welcome">
     </div>
     <div class="intro--options">
+    @foreach($workTypeAtMain as $work)
       <a href="#0">
-        <h3>Metiew &amp; Smith</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do.</p>
+        <h3>{{ $work->name }}</h3>
+        <p>{{ $work->description }}</p>
       </a>
-      <a href="#0">
-        <h3>Fantasy interactive</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do.</p>
-      </a>
-      <a href="#0">
-        <h3>Paul &amp; shark</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do.</p>
-      </a>
+    @endforeach
     </div>
   </div>
 </li>

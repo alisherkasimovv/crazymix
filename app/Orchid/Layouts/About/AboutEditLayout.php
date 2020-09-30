@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Orchid\Layouts\Social;
+namespace App\Orchid\Layouts\About;
 
 use Orchid\Screen\Field;
 use Orchid\Screen\Fields\CheckBox;
@@ -8,8 +8,9 @@ use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Fields\Picture;
 use Orchid\Screen\Fields\Radio;
 use Orchid\Screen\Layouts\Rows;
+use Orchid\Screen\Fields\TextArea;
 
-class SocialEditLayout extends Rows
+class AboutEditLayout extends Rows
 {
     /**
      * Used to create the title of a group of form elements.
@@ -26,25 +27,24 @@ class SocialEditLayout extends Rows
     protected function fields(): array
     {
         return [
-            Input::make('social.name')
+            Input::make('about.name')
                 ->type('text')
                 ->max(128)
                 ->required()
                 ->title(__('Название'))
                 ->placeholder(__('Введите название соц.сети')),
 
-            Input::make('social.url')
-                ->type('text')
-                ->max(256)
-                ->title(__('Ссылка'))
-                ->placeholder(__('Ссылка на социальную сеть')),
+            TextArea::make('about.text')
+                ->rows(5)
+                ->title(__('Текст'))
+                ->placeholder(__('Краткий текст')),
 
-            Picture::make('social.icon')
-                ->title('Логотип')
+            Picture::make('about.image')
+                ->title('Изображение')
                 ->required()
                 ->targetRelativeUrl(),
 
-            CheckBox::make('social.is_enabled')
+            CheckBox::make('about.is_enabled')
                 ->value(1)
                 ->sendTrueOrFalse()
                 ->title('Активность')

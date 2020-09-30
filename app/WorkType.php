@@ -3,11 +3,13 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
+use Orchid\Filters\Filterable;
 use Orchid\Screen\AsSource;
 
 class WorkType extends Model
 {
-    use AsSource;
+    use AsSource, Filterable;
 
     protected $fillable = [
         'name',
@@ -15,5 +17,14 @@ class WorkType extends Model
         'main_work',
         'is_enabled'
     ];
+
+    protected $allowedSorts = [
+        'main_work'
+    ];
+
+    public function countAllMainWorks()
+    {
+        return DB::table('work_types')->where('main_work', 1)->count();
+    }
 
 }

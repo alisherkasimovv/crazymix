@@ -3,6 +3,7 @@
 namespace App\Orchid\Layouts\WorkType;
 
 use Orchid\Screen\Field;
+use Orchid\Screen\Fields\CheckBox;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Fields\Radio;
 use Orchid\Screen\Layouts\Rows;
@@ -36,29 +37,21 @@ class WorkTypeEditLayout extends Rows
                 ->max(512)
                 ->required()
                 ->title(__('Краткое описание'))
-                ->placeholder(__('Введите краткое описание работы')),
+                ->placeholder(__('Введите краткое описание работы.')),
 
-            Radio::make('workType.main_work')
-                ->placeholder('Отображать')
+            CheckBox::make('workType.main_work')
                 ->value(1)
-                ->checked(true)
-                ->title('Отображение в главном блоке'),
-
-            Radio::make('workType.main_work')
-                ->placeholder('Не отображать')
-                ->value(0)
+                ->sendTrueOrFalse()
+                ->title('Главный блок')
+                ->placeholder('Отображать')
                 ->help('Управление отображением данной работы в гланом блоке веб-сайта.'),
 
-            Radio::make('workType.is_enabled')
-                ->placeholder('Активно')
+            CheckBox::make('workType.is_enabled')
                 ->value(1)
-                ->checked(true)
-                ->title('Активность'),
-
-            Radio::make('workType.is_enabled')
-                ->placeholder('Не активно')
-                ->value(0)
-                ->help('Сделать информацию активной для посетителей'),
+                ->sendTrueOrFalse()
+                ->title('Активность')
+                ->placeholder('Активно')
+                ->help('Сделать информацию активной для посетителей.'),
         ];
     }
 }

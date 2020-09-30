@@ -5,13 +5,17 @@
       <div class="modal">
         <div class="modal--information">
           <p>{{ $basic->address_main }}, {{ $basic->city }}, {{ $basic->country }}</p>
-          <a href="mailto:ouremail@gmail.com">Email</a>
+          <a href="mailto:{{ $basic->email }}">{{ $basic->email }}</a>
           <a href="tel:{{ $basic->phone_main }}">{{ $basic->phone_main }}</a>
         </div>
         <ul class="modal--options">
-          <li><a href="#0">Bēhance</a></li>
-          <li><a href="#0">dribbble</a></li>
-          <li><a href="mailto:ouremail@gmail.com">Contact Us</a></li>
+          @foreach ($socials as $social)
+            <li>
+              <a href="{{ $social->url }}" target="_blank">
+                <img class="contact--icon" src="{{ $social->icon }}" alt="">
+              </a>
+            </li>
+          @endforeach
         </ul>
       </div>
     </div>

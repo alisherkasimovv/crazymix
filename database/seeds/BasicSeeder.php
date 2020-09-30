@@ -19,7 +19,8 @@ class BasicSeeder extends Seeder
             'country'       => 'Uzbekistan',
             'phone_main'    => '987 (98) 454-64-63',
             'email'         => 'unborn@gmail.com',
-            'image'         => '/storage/2020/09/11/78432c73c307436169d3a3657f561a6a97caf1f1.png'
+            'image'         => '/storage/2020/09/11/78432c73c307436169d3a3657f561a6a97caf1f1.png',
+            'is_active'     => 1
         ]);
     }
 }

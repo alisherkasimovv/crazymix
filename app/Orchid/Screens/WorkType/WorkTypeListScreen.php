@@ -4,8 +4,13 @@ namespace App\Orchid\Screens\WorkType;
 
 use App\Orchid\Layouts\WorkType\WorkTypeListLayout;
 use App\WorkType;
+use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Actions\Link;
+use Orchid\Screen\Actions\ModalToggle;
+use Orchid\Screen\Layout;
+use Orchid\Screen\Layouts\Table;
 use Orchid\Screen\Screen;
+use Orchid\Screen\TD;
 
 class WorkTypeListScreen extends Screen
 {
@@ -31,7 +36,7 @@ class WorkTypeListScreen extends Screen
     public function query(): array
     {
         return [
-            'workTypes' => WorkType::paginate(10)
+            'workTypes' => WorkType::filters()->defaultSort('main_work')->get()
         ];
     }
 

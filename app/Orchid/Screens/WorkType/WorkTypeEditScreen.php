@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Screen;
 use Orchid\Support\Facades\Alert;
+use Illuminate\Support\Facades\DB;
 
 class WorkTypeEditScreen extends Screen
 {
@@ -91,9 +92,23 @@ class WorkTypeEditScreen extends Screen
 
     public function createOrUpdate(WorkType $workType, Request $request)
     {
-        $workType->fill($request->get('workType'))->save();
+        $message = "Данные успешно сохранены.";
 
-        Alert::info("Данные успешно сохранены");
+        $type = $request->get('workType');
+
+        if ($type['main_work'] == 1)
+        {
+            $enabled = $workType->countAllMainWorks();
+            if ($enabled >= 3)
+            {
+                $type['main_work'] = 0;
+                $message .= "Однако сделать данную работу отображаемой на главной странице невозможно, так как дизайн сайта подразумевает отображение только трёх типов работ. Редактировать состояния выполняемых работ можно только в общей странице.";
+            }
+        }
+
+        $workType->fill($type)->save();
+
+        Alert::info($message);
         return redirect()->route('platform.workTypes');
     }
 

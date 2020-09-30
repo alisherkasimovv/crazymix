@@ -44,6 +44,10 @@ class PlatformProvider extends OrchidServiceProvider
                 ->icon('icon-chemistry')
                 ->route('platform.workTypes'),
 
+            ItemMenu::label('Информация')
+                ->icon('icon-info')
+                ->route('platform.abouts'),
+
 //            ItemMenu::label('Sub element item 1')
 //                ->place('example-menu')
 //                ->icon('icon-bag'),

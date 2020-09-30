@@ -3,6 +3,7 @@
 namespace App\Orchid\Layouts\Work;
 
 use Orchid\Screen\Field;
+use Orchid\Screen\Fields\CheckBox;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Fields\Radio;
 use Orchid\Screen\Fields\TextArea;
@@ -47,27 +48,20 @@ class WorkEditLayout extends Rows
             Upload::make('work.attachment')
                 ->title('Изображения'),
 
-            Radio::make('work.is_enabled')
-                ->placeholder('Активно')
+            CheckBox::make('work.is_enabled')
                 ->value(1)
-                ->checked(true)
-                ->title('Активность'),
-
-            Radio::make('work.is_enabled')
-                ->placeholder('Не активно')
-                ->value(0)
+                ->sendTrueOrFalse()
+                ->title('Активность')
+                ->placeholder('Активно')
                 ->help('Сделать информацию активной для посетителей'),
 
-            Radio::make('work.shown_at_main')
-                ->placeholder('Показывать')
+            CheckBox::make('work.shown_at_main')
                 ->value(1)
-                ->checked(true)
-                ->title('Видимость'),
+                ->sendTrueOrFalse()
+                ->title('Карусель')
+                ->placeholder('Показывать')
+                ->help('Выставить работу в основной карусель')
 
-            Radio::make('work.shown_at_main')
-                ->placeholder('Не показывать')
-                ->value(0)
-                ->help('Выставить работу в основной карусель'),
         ];
     }
 }
