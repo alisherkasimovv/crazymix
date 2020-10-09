@@ -1,3 +1,4 @@
+@foreach($basics as $basic)
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,6 +27,8 @@
   @include('sections.partials.outer-nav')
 </div>
 
+@include('sections.partials.modal')
 @include('sections.partials.scripts')
 </body>
 </html>
+@endforeach

@@ -42,7 +42,11 @@ class AboutListScreen extends Screen
      */
     public function commandBar(): array
     {
-        return [];
+        return [
+            Link::make('Добавить...')
+                ->icon('icon-pencil')
+                ->route('platform.about.edit')
+        ];
     }
 
     /**

@@ -88,6 +88,14 @@ class AboutEditScreen extends Screen
 
     public function createOrUpdate(About $about, Request $request)
     {
+        $count = $about->countEnabledAboutInfo();
+
+        if ($count >= 3)
+        {
+            Alert::info('Невозможно сохранить больше трех записей');
+            return redirect()->route('platform.abouts');
+        }
+
         $about->fill($request->get('about'))->save();
 
         Alert::info('Данные успешно сохранены');
